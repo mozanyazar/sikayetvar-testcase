@@ -2,6 +2,7 @@ import React, { ReactEventHandler, ReactNode, useEffect, useMemo, useState } fro
 import { useRouter } from "next/router";
 import { redirect } from "next/dist/server/api-utils";
 import { GetServerSideProps } from "next";
+import Skeleton from "react-loading-skeleton";
 
 // COMPONENTS & TYPES
 import { ResponseMessage, UsersData } from "@/services/types/types";
@@ -22,7 +23,7 @@ import AddNewStudentsForm from "@/components/UI/AddNewStudentsForm/AddNewStudent
 
 function Students({ repo }: { repo: UsersData }) {
   const { students, setStudents, addNewStudentToggle, isAddNewStudentsFormOpen } = useDashboard();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const router = useRouter();
   let selectBox = [6, 8, 10];
@@ -31,6 +32,14 @@ function Students({ repo }: { repo: UsersData }) {
   useEffect(() => {
     setStudents(repo);
   }, [repo]);
+
+  // skeleton
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, [students]);
 
   // Son sayfaya geldiğimizde eğer sayfa ilerletme işlemi yapılacak ise bir işlem yapılmaz
   const isItLastPage = () => {
@@ -86,21 +95,30 @@ function Students({ repo }: { repo: UsersData }) {
           <li>Company Name</li>
         </ul>
         <div className={styles.studentsContainer}>
-          {!loading &&
-            students?.users?.map((user) => {
-              return (
-                <UserCard
-                  key={user.id}
-                  image={user.image}
-                  firstName={user.firstName}
-                  email={user.email}
-                  phone={user.phone}
-                  gender={user.gender}
-                  companyName={user.company.name}
-                  id={user.id}
-                />
-              );
-            })}
+          {loading
+            ? Array(6)
+                .fill("maple")
+                .map((item, index) => {
+                  return (
+                    <div className={styles.skeletonAnimation} key={index}>
+                      <Skeleton />
+                    </div>
+                  );
+                })
+            : students?.users?.map((user) => {
+                return (
+                  <UserCard
+                    key={user.id}
+                    image={user.image}
+                    firstName={user.firstName}
+                    email={user.email}
+                    phone={user.phone}
+                    gender={user.gender}
+                    companyName={user.company.name}
+                    id={user.id}
+                  />
+                );
+              })}
         </div>
         <div className={styles.paginationWrapper}>
           <label className={styles.perPageContainer}>

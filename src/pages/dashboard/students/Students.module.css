@@ -4,7 +4,14 @@
   padding-top: 0;
   height: 100%;
 }
-
+.skeletonAnimation {
+  margin-bottom: 10px;
+}
+.skeletonAnimation,
+.skeletonAnimation * {
+  width: 100%;
+  min-height: 80px;
+}
 .studentsHead {
   display: flex;
   justify-content: space-between;
@@ -118,6 +125,13 @@
   }
 }
 @media screen and (max-width: 900px) {
+  .skeletonAnimation:first-child {
+    margin-top: 20px;
+  }
+  .skeletonAnimation,
+  .skeletonAnimation * {
+    height: 173px;
+  }
   .studentsTitles {
     display: none;
   }
@@ -141,6 +155,10 @@
 }
 
 @media screen and (max-width: 630px) {
+  .skeletonAnimation,
+  .skeletonAnimation * {
+    height: 134px;
+  }
   .studentsHead {
     flex-direction: column;
     align-items: flex-start;
@@ -152,6 +170,12 @@
   }
   .addStudent {
     padding: 7px 16px 7px 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .skeletonAnimation,
+  .skeletonAnimation * {
+    height: 121px;
   }
 }
 @media screen and (max-width: 435px) {

@@ -121,6 +121,11 @@
     gap: 30px;
   }
 }
+@media screen and (min-width: 1930px) {
+  .sidebarContainer {
+    width: 380px;
+  }
+}
 @media screen and (max-width: 768px) {
   .sidebarContainer {
     width: 70%;
