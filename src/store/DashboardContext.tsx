@@ -29,7 +29,7 @@ const DashboardContext = createContext<DashboardContextData>({
   dashboardSideBarToggle: () => {},
   setStudents: () => {},
   addNewStudentToggle: () => {},
-  searchStudentsHandler: (event) => {
+  searchStudentsHandler: () => {
     throw new Error("Function not implemented.");
   },
   deleteUserById: (id: number) => {
@@ -108,6 +108,7 @@ export const DashboardContextProvider: React.FC<DashboardContextProviderProps> =
     return { status: 200 };
   };
 
+  // öğrenci arama
   const searchStudentsHandler = async (event: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.target.value;
     const response = await searchUser(searchTerm);
