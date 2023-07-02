@@ -13,7 +13,7 @@ const onlyAdmin = (WrappedComponent: React.ComponentType) => {
     useEffect(() => {
       const timer = setTimeout(() => {
         !isLoggedIn ? router.push("/") : setLoading(true);
-      }, 1500);
+      }, 1100);
 
       return () => clearTimeout(timer);
     }, [isLoggedIn]);
