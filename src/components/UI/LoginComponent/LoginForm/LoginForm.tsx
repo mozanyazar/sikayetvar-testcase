@@ -17,7 +17,7 @@ export default function LoginForm() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      isLoggedIn ? router.push("/") : setLoading(true);
+      isLoggedIn ? router.push("/dashboard") : setLoading(true);
     }, 1500);
 
     return () => clearTimeout(timer);
