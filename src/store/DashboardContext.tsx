@@ -17,6 +17,7 @@ interface DashboardContextData {
   addNewStudentToggle: () => void;
   dashboardSideBarToggle: () => void;
   setStudents: React.Dispatch<React.SetStateAction<UsersData | null>>;
+  setCardLoading: React.Dispatch<React.SetStateAction<boolean>>;
   deleteUserById: (id: number) => Promise<ResponseMessage>;
   addNewStudent: ({ firstName, email, phone, gender }: NewUserDataTypes) => Promise<ResponseMessage>;
   updateUserInformation: (data: UpdateUserData) => Promise<ResponseMessage>;
@@ -28,6 +29,7 @@ const DashboardContext = createContext<DashboardContextData>({
   cardLoading: true,
   isDashboardSidebarOpened: false,
   isAddNewStudentsFormOpen: false,
+  setCardLoading: () => {},
   dashboardSideBarToggle: () => {},
   setStudents: () => {},
   addNewStudentToggle: () => {},
@@ -153,6 +155,7 @@ export const DashboardContextProvider: React.FC<DashboardContextProviderProps> =
     addNewStudent,
     updateUserInformation,
     searchStudentsHandler,
+    setCardLoading,
     isDashboardSidebarOpened,
     cardLoading,
     students,

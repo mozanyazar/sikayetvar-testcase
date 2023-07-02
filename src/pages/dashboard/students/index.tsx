@@ -22,7 +22,8 @@ import rightarrow from "@/icons/rightarrow.svg";
 import AddNewStudentsForm from "@/components/UI/AddNewStudentsForm/AddNewStudentsForm";
 
 function Students({ repo }: { repo: UsersData }) {
-  const { students, setStudents, addNewStudentToggle, isAddNewStudentsFormOpen, cardLoading } = useDashboard();
+  const { students, setStudents, addNewStudentToggle, isAddNewStudentsFormOpen, cardLoading, setCardLoading } =
+    useDashboard();
 
   const router = useRouter();
   let selectBox = [6, 8, 10];
@@ -41,6 +42,7 @@ function Students({ repo }: { repo: UsersData }) {
   const pageNumberChangeHandler = (value: string) => {
     // azalt
     if (value === "decrement" && repo.skip !== 0) {
+      setCardLoading(true);
       return router.push({
         pathname: "/dashboard/students",
         query: { limit: repo.limit, skip: repo.skip - 1 },
@@ -48,6 +50,7 @@ function Students({ repo }: { repo: UsersData }) {
     }
     // arttır
     else if (value === "increment" && !isItLastPage()) {
+      setCardLoading(true);
       return router.push({
         pathname: "/dashboard/students",
         query: { limit: repo.limit, skip: repo.skip + 1 },
@@ -58,6 +61,7 @@ function Students({ repo }: { repo: UsersData }) {
   // Sayfa başı kaç students gelecek "limiti değiştir"
   const perPageChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newLimit = Number(event.target.value);
+    setCardLoading(true);
     router.push({
       pathname: "/dashboard/students",
       query: { limit: newLimit, skip: 0 },
