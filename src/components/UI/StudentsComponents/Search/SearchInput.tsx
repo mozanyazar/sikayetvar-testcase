@@ -13,7 +13,7 @@ export default function SearchInput() {
     setSearch(event.target.value);
     if (search.trim().length < 2) return;
     setMessage("");
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 200));
     const response = await searchStudentsHandler(event);
     if (response.status === 500) {
       setMessage("Kullanıcı bulunamadı");
