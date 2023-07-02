@@ -3,7 +3,7 @@ import { UpdateUserData } from "@/components/UI/StudentsComponents/ChangeUserInf
 import { ResponseMessage, User, UsersData } from "@/services/types/types";
 import { createUser, deleteUser, searchUser, updateUser } from "@/services/users";
 import { useRouter } from "next/router";
-import React, { ChangeEvent, ReactNode, createContext, useContext, useState } from "react";
+import React, { ChangeEvent, ReactNode, createContext, useContext, useEffect, useState } from "react";
 
 interface DashboardContextProviderProps {
   children: ReactNode;
@@ -11,6 +11,7 @@ interface DashboardContextProviderProps {
 
 interface DashboardContextData {
   isDashboardSidebarOpened: boolean;
+  cardLoading: boolean;
   students: UsersData | null;
   isAddNewStudentsFormOpen: boolean;
   addNewStudentToggle: () => void;
@@ -24,6 +25,7 @@ interface DashboardContextData {
 
 const DashboardContext = createContext<DashboardContextData>({
   students: null,
+  cardLoading: true,
   isDashboardSidebarOpened: false,
   isAddNewStudentsFormOpen: false,
   dashboardSideBarToggle: () => {},
@@ -49,8 +51,18 @@ export const DashboardContextProvider: React.FC<DashboardContextProviderProps> =
   const router = useRouter();
   const [isDashboardSidebarOpened, setIsDashboardSidebarOpened] = useState(false);
   const [isAddNewStudentsFormOpen, setIsAddNewStudentsFormOpen] = useState(false);
-
+  const [cardLoading, setCardLoading] = useState(true);
   const [students, setStudents] = useState<UsersData | null>(null);
+
+  // Card skeleton animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCardLoading(false);
+    }, 1500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [cardLoading]);
 
   // Yeni kullanıcı ekle
   const addNewStudent = async ({ firstName, email, phone, gender }: NewUserDataTypes) => {
@@ -110,14 +122,17 @@ export const DashboardContextProvider: React.FC<DashboardContextProviderProps> =
 
   // öğrenci arama
   const searchStudentsHandler = async (event: ChangeEvent<HTMLInputElement>) => {
+    setCardLoading(true);
     const searchTerm = event.target.value;
     const response = await searchUser(searchTerm);
 
     if (response.users.length !== 0) {
       setStudents(response);
+      setCardLoading(false);
       return { status: 200 };
     }
     setStudents(response);
+    setCardLoading(false);
     return { status: 500 };
   };
 
@@ -139,6 +154,7 @@ export const DashboardContextProvider: React.FC<DashboardContextProviderProps> =
     updateUserInformation,
     searchStudentsHandler,
     isDashboardSidebarOpened,
+    cardLoading,
     students,
     isAddNewStudentsFormOpen,
   };

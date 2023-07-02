@@ -22,8 +22,7 @@ import rightarrow from "@/icons/rightarrow.svg";
 import AddNewStudentsForm from "@/components/UI/AddNewStudentsForm/AddNewStudentsForm";
 
 function Students({ repo }: { repo: UsersData }) {
-  const { students, setStudents, addNewStudentToggle, isAddNewStudentsFormOpen } = useDashboard();
-  const [loading, setLoading] = useState<boolean>(true);
+  const { students, setStudents, addNewStudentToggle, isAddNewStudentsFormOpen, cardLoading } = useDashboard();
 
   const router = useRouter();
   let selectBox = [6, 8, 10];
@@ -32,14 +31,6 @@ function Students({ repo }: { repo: UsersData }) {
   useEffect(() => {
     setStudents(repo);
   }, [repo]);
-
-  // skeleton
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  }, [students]);
 
   // Son sayfaya geldiğimizde eğer sayfa ilerletme işlemi yapılacak ise bir işlem yapılmaz
   const isItLastPage = () => {
@@ -95,7 +86,7 @@ function Students({ repo }: { repo: UsersData }) {
           <li>Company Name</li>
         </ul>
         <div className={styles.studentsContainer}>
-          {loading
+          {cardLoading
             ? Array(6)
                 .fill("maple")
                 .map((item, index) => {
