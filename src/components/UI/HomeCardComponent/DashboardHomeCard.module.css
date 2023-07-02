@@ -1,0 +1,71 @@
+.cardContainer {
+  width: 255px;
+  height: 157px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+.cardContainer:hover {
+  transform: scale(1.02);
+  box-shadow: 1px 2px 3px #efefef;
+}
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.imgContainer {
+  min-height: 40px;
+}
+.cardTitle {
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #6c6c6c;
+  text-transform: capitalize;
+  width: max-content;
+  letter-spacing: 0.1px;
+}
+.cardBottom {
+  align-self: flex-end;
+  font-family: var(--primary-font);
+  font-size: clamp(24px, 2.08333333333vw, 30px);
+  font-weight: 700;
+  line-height: 1.23333333333;
+  letter-spacing: 0em;
+  text-align: right;
+}
+@media screen and (max-width: 1440px) {
+  .cardContainer {
+    width: 22%;
+    min-width: 255px;
+  }
+}
+@media screen and (max-width: 1360px) {
+  .cardContainer {
+    width: 22%;
+    min-width: 200px;
+  }
+}
+@media screen and (max-width: 1130px) {
+  .cardContainer {
+    min-width: 255px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cardContainer {
+    width: 38%;
+    min-width: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cardContainer {
+    width: 100%;
+    min-width: inherit;
+  }
+}

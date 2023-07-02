@@ -1,0 +1,9 @@
+/* footer'ı content az oldugu durumlarda bile en alta konumlandırmak için aşağıdaki stiller verilmiştir */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.centerElement {
+  flex-grow: 1;
+}

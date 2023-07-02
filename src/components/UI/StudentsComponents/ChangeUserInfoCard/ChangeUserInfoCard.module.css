@@ -1,0 +1,104 @@
+.updateContainer {
+  background-color: #ffffff;
+  padding: 15px 13px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  max-height: 85px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px #e5e5e569;
+}
+.message {
+  padding: 40px;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  font-size: 15px;
+  font-weight: 300;
+  color: #4b506d;
+}
+.userImg img {
+  border-radius: 4px;
+  background-color: #e5e5e5;
+}
+.updateContainer form {
+  display: flex;
+  gap: 20px;
+  margin-left: 24px;
+  flex: 1;
+}
+.updateContainer form button {
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  border: none;
+  font-family: var(--primary-font);
+  font-size: 14px;
+  border-radius: 4px;
+  color: white;
+}
+
+.updateContainer form button[type="submit"] {
+  margin-left: auto;
+  background: var(--gradient);
+}
+.updateContainer form button:last-child {
+  background-color: red;
+}
+.updateContainer form button:hover {
+  background-color: #4b506d;
+}
+.updateContainer input {
+  padding: 9px 13px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.639);
+  font-size: 12px;
+  width: 22%;
+}
+.updateContainer input:focus,
+.updateContainer select:focus {
+  outline: none;
+}
+.updateContainer select {
+  background-color: transparent;
+  border: none;
+  color: #4b506d;
+  padding: 3px;
+}
+
+@media screen and (max-width: 1124px) {
+  .userImg img {
+    width: 139px;
+    height: auto;
+  }
+  .updateContainer {
+    max-height: max-content;
+  }
+  .updateContainer form {
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .updateContainer form input {
+    width: 100%;
+  }
+  .updateContainer form button {
+    margin-left: 0 !important;
+    width: 100%;
+    padding: 10px 8px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .userImg {
+    display: none;
+  }
+  .updateContainer form {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,140 @@
+.sidebarContainer {
+  padding: 18px 31.5px 31px 25px;
+  box-sizing: border-box;
+  width: 270px;
+  background-color: #f2eae1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebarTitle h1 {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-size: clamp(16px, 3vw, 20px);
+  line-height: 1.2;
+  color: #000000;
+  position: relative;
+  padding-left: 12.5px;
+  letter-spacing: 0em;
+  position: relative;
+  white-space: nowrap;
+}
+.sidebarTitle h1::before {
+  left: 0;
+  top: 0;
+  height: 23px;
+  width: 6px;
+  background-color: #f8d442;
+  position: absolute;
+  content: "";
+}
+.photoGroup {
+  margin-top: 54px;
+  width: 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nameGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+  align-items: center;
+}
+
+.nameGroup h4 {
+  font-family: var(--primary-font);
+  font-size: clamp(15.5px, 1.64vw, 17px);
+  font-weight: 700;
+  line-height: 1.23529411765;
+  letter-spacing: 0em;
+  color: black;
+}
+.nameGroup p {
+  font-family: var(--primary-font);
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-transform: capitalize;
+  color: #feaf00;
+  width: max-content;
+}
+
+.sidebarBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-top: auto;
+  height: 497px;
+  width: 193px;
+  position: relative;
+  left: 3px;
+}
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  gap: 23px;
+}
+.logout span {
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.image img {
+  border-radius: 50%;
+  box-shadow: 1px 2px 2px black;
+}
+
+@media screen and (max-width: 1200px) {
+  .sidebarContainer {
+    position: fixed;
+    left: -100%;
+    transition: all 0.3s ease;
+    width: 370px;
+    z-index: 99999;
+    max-height: 100vh;
+    justify-content: flex-start;
+    gap: 80px;
+  }
+  .sidebarContainer.active {
+    left: 0;
+  }
+  .sidebarBottom,
+  .photoGroup {
+    margin-top: 0;
+  }
+  .sidebarBottom {
+    height: max-content;
+    gap: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sidebarContainer {
+    width: 70%;
+  }
+}
+
+@media screen and (max-height: 840px) and (max-width: 900px) {
+  .sidebarContainer {
+    gap: 24px;
+    overflow-y: scroll;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sidebarContainer {
+    width: 100%;
+  }
+}

@@ -1,0 +1,22 @@
+.footer {
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: #330867 2px solid;
+  padding: 20px 0;
+}
+
+.footer h4 {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-size: clamp(24px, 2vw, 28px);
+  line-height: 1.2;
+  position: relative;
+  letter-spacing: 0em;
+  position: relative;
+  padding-left: 10px;
+  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,23 @@
+.container {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 30px;
+}
+.cards.layout2 {
+  justify-content: flex-start;
+  column-gap: 15px;
+}
+
+@media screen and (max-width: 1128px) {
+  .cards {
+    gap: 30px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,15 @@
+.container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(131deg, rgba(254, 175, 0, 1) 62%, rgba(248, 212, 66, 1) 100%);
+  z-index: 99999;
+}
+.container svg {
+  width: clamp(150px, 24vw, 250px) !important;
+}

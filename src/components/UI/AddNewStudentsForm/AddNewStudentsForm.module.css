@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay {
+  background: #00000039;
+  z-index: 9999999999;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.form {
+  z-index: 99999999999;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  gap: 20px;
+  box-shadow: 3px 2px 12px #4b506d;
+}
+
+.form label input {
+  padding: 9px 13px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  min-width: 300px;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.639);
+  font-size: 12px;
+}
+.form label input::placeholder {
+  font-family: var(--primary-font);
+}
+.form label input:focus {
+  outline-color: #e5e5e5;
+}
+
+.form .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: transparent;
+  color: #4b506d;
+  font-size: 18px;
+  border: none;
+  font-family: var(--primary-font);
+}
+.form h4 {
+  font-family: var(--primary-font);
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 700;
+  color: #474040;
+  line-height: 1.22727272727;
+  letter-spacing: 0.028px;
+}
+.form select {
+  background-color: transparent;
+  border: none;
+  color: #4b506d;
+  padding: 3px;
+}
+.form select:focus {
+  outline-color: #4b506d7c;
+}
+.form button[type="submit"] {
+  font-family: var(--primary-font);
+  font-size: clamp(12px, 1.4vw, 14px);
+  font-weight: 500;
+  line-height: 17px;
+  color: #ffffff;
+  padding: 9px 25px 9px 26px;
+  background: var(--gradient);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: 0.0366px;
+}
+.error {
+  font-family: var(--primary-font);
+  color: #4b506d;
+  font-size: 14px;
+}

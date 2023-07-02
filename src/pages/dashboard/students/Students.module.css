@@ -1,0 +1,165 @@
+.container {
+  background-color: #f8f8f8;
+  padding: 30px;
+  padding-top: 0;
+  height: 100%;
+}
+
+.studentsHead {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 11.5px;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.studentsHead h2 {
+  font-family: var(--primary-font);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.22727272727;
+  letter-spacing: 0.028px;
+}
+.headRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.addStudent {
+  font-family: var(--primary-font);
+  font-size: clamp(12px, 1.4vw, 14px);
+  font-weight: 500;
+  line-height: 17px;
+  color: #ffffff;
+  padding: 13px 27px 14px 26px;
+  background: var(--gradient);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: 0.0366px;
+}
+
+.studentsTitles {
+  display: flex;
+  align-items: center;
+  margin-left: 109px;
+  margin-top: 21.5px;
+  margin-bottom: 22px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: calc(100% - 320px);
+}
+.studentsTitles li {
+  list-style: none;
+  font-family: var(--primary-font);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  color: #acacac;
+  letter-spacing: 0.12px;
+  width: 130px;
+}
+.studentsTitles li:last-child {
+  text-align: right;
+}
+.paginationWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 30px;
+  font-family: var(--secondary-font);
+  color: #9fa2b4;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  gap: 100px;
+
+  letter-spacing: 0.30000001192092896px;
+}
+.perPageContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.perPageContainer select {
+  background-color: transparent;
+  border: none;
+  color: #4b506d;
+}
+.perPageContainer select:focus {
+  outline-color: #4b506d;
+}
+.paginationArrows {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.paginationArrows button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+}
+@media screen and (max-width: 1350px) {
+  .studentsTitles {
+    width: calc(100% - 244px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .container .studentsHead {
+    padding-bottom: 24px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .studentsTitles {
+    display: none;
+  }
+  .paginationWrapper {
+    position: fixed;
+    bottom: 0;
+    padding: 13px;
+    background: #191817;
+    width: 100%;
+    box-sizing: border-box;
+    left: 0;
+    justify-content: center;
+    box-shadow: 2px 3px 4px gray;
+    color: #fff;
+    gap: 0;
+    justify-content: space-between;
+  }
+  .paginationWrapper select {
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .studentsHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .headRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .addStudent {
+    padding: 7px 16px 7px 16px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .headRight {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .addStudent {
+    width: 100%;
+  }
+}

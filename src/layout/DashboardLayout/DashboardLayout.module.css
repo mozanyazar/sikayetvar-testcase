@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.rightElement {
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.rightElement .rightBottom {
+  height: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 60px);
+}
+
+@media screen and (max-width: 1150px) {
+  .rightElement > div {
+    padding: 18px;
+  }
+}
