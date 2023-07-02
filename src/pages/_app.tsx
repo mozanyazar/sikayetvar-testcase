@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import { ComponentType, ReactNode } from "react";
 import MainLayout from "@/layout/MainLayout/MainLayout";
 import "@/styles/globals.css";
-import { AuthContextProvider } from "@/store/AuthContext";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export type CustomComponent<T = {}> = ComponentType<T> & {
   getLayout?(page: ReactNode): ReactNode;
