@@ -18,7 +18,7 @@
 
 -  Verilen fakeapi'da kullanıcılarda role field'ı olmadığı için `her kullanıcı admin` olarak varsayılmıştır ve giriş yaptıktan sonra dashboard(admin paneline) erişimi vardır.
 
--  `Kullanıcı henüz giriş yapmadıysa High order component, kullanıcının olmasını istediğimiz admin paneli gibi alanlarda koruma sağlar ve kullanıcı yok ise redirect eder.`
+-  `Kullanıcı henüz giriş yapmadıysa Higher order component, kullanıcının olmasını istediğimiz admin paneli gibi alanlarda koruma sağlar ve kullanıcı yok ise redirect eder.`
 
 -  Kullanıcı hali hazırda giriş yapmış ise tekrar login sayfasına erişemez redirect eder.
 
